@@ -17,13 +17,14 @@ import luiwalk from '../src/app/assets/img/a1.gif';
 import luistand from '../src/app/assets/img/stand.gif';
 import arena from '../src/app/assets/img/arena.png';
 import React from 'react';
+import Fighter from '../src/utils/Fighter';
 
 
 
 
 
 function App() {
-  
+  const [position,setPosition] = useState('stand');
   const Example = () => { 
     return React.createElement("h1", { style: { color: "black" } }, "Hello World"); 
   };
@@ -45,10 +46,8 @@ function Greeting() {
 const keydownHandler = (e) => {
   if(e.key === 'Enter'){
     console.log('im in');
-    const element = document.getElementById("demo");
-    element.remove();
-    Greeting();
-    Example();
+    
+    setPosition('walk');
   }
   
 };
@@ -58,16 +57,12 @@ const keydownHandler = (e) => {
       document.removeEventListener('keydown', keydownHandler);
     }
   }, []);
-  Greeting();
+  
   return (
    
     
-    <div className={style.arena}>
-            
-            <img id='demo' className={style.fighter} src={luistand}></img>
-            <img id='demo2' className={style.fighter} src={luiwalk}></img>
-            
-    </div>
+    
+    <Fighter prop={position}/>
     
   )
 }

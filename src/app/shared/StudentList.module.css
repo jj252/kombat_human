@@ -38,6 +38,13 @@
         
         
         }
+        .element1{
+        
+            font-size: large;
+            color: aliceblue;
+            
+            
+            }
 
     @media screen and (max-width:800px){
         .bankCheck{
