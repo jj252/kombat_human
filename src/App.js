@@ -13,62 +13,61 @@ import {createElement,useState,useEffect,useRef} from 'react';
 import {CreatedElement} from './components/Misc';
 import {CreatedElement2} from './components/Misc';
 import style from '../src/app/shared/StudentList.module.css';
-import lui from '../src/app/assets/img/a1.gif';
+import luiwalk from '../src/app/assets/img/a1.gif';
 import luistand from '../src/app/assets/img/stand.gif';
 import arena from '../src/app/assets/img/arena.png';
+import React from 'react';
 
 
-const test2 = (name) =>{
-  
-  return name;
-}
 
-const basicBtn = {
-  border:'solid 2px purple',
-  color: 'blue',
-  backgroundColor:'yellow'
-}
 
-const test3 = 'this is a test';
-
-const peaceOnEarth = () =>{
-  console.log("peace on earth")
-}
 
 function App() {
-  const [name, setName] = useState('Jeremy');
-  const divEl = useRef(null);
+  
+  const Example = () => { 
+    return React.createElement("h1", { style: { color: "black" } }, "Hello World"); 
+  };
 
+
+function Greeting() {
+  return createElement(
+    'img',
+    { className: 'fighter' },
+    { src: {luiwalk} }
+    
+  );
+}
+ 
   const getRandomColor = () =>
     `#${Math.floor(Math.random() * 2 ** 24).toString(16)}`;
 
-  const test1 = (mytest) => {
-    console.log(divEl.current);
-    divEl.current.style.backgroundColor = getRandomColor();
+
+const keydownHandler = (e) => {
+  if(e.key === 'Enter'){
+    console.log('im in');
+    const element = document.getElementById("demo");
+    element.remove();
+    Greeting();
+    Example();
   }
-
-  const noSetName = () =>{
-    console.log('I never set a name');
-  }
-  let x = 0;
-  useEffect(() => {
-    setTimeout(peaceOnEarth,2000);
-  },[name]);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCampsites());
-}, [dispatch]);
-
+  
+};
+  React.useEffect(() => {
+    document.addEventListener('keydown', keydownHandler);
+    return () => {
+      document.removeEventListener('keydown', keydownHandler);
+    }
+  }, []);
+  Greeting();
   return (
    
-
+    
     <div className={style.arena}>
             
-            <img className={style.fighter} src={luistand}></img>
-         
-    </div> 
+            <img id='demo' className={style.fighter} src={luistand}></img>
+            <img id='demo2' className={style.fighter} src={luiwalk}></img>
+            
+    </div>
     
   )
 }
