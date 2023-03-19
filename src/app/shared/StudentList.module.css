@@ -1,0 +1,51 @@
+@keyframes rollout {
+    0% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes rollout2 {
+    0% {
+      transform: rotate(30deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+
+
+
+    @media screen and (max-width:800px){
+        .mybutton3
+        {
+            position:absolute;
+            margin-left: 295px;
+            margin-top: -550px;
+        }
+        }
+.arena{
+    background-image: url("../assets/img/arena.png");
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-size: 1150px;
+    }
+    .fighter{
+        
+        height: 800px;
+        
+        
+        }
+
+    @media screen and (max-width:800px){
+        .bankCheck{
+            position: absolute;
+            top: 470px;
+            left:30px;
+            color:chartreuse;
+            font-size: large;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }
+        }
